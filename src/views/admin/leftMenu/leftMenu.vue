@@ -48,6 +48,11 @@
         </template>
         <el-menu-item :route="$route.path" index="0" @click="signOut"><i class="iconfont icon-signout"></i>退出</el-menu-item>
       </el-submenu>
+       <el-menu-item index="/home">
+        <i class="el-icon-success"></i>
+        <span slot="title">进前端</span>
+      </el-menu-item>
+
     </el-menu>
     <div class="collapse-wrap" @click="toggleCollapse" @mouseover="setLineData" @mouseout="setLineData">
       <span
