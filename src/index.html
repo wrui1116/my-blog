@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>凉墨的博客</title>
+    <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+  </head>
+  <body>
+    <noscript>本站大量使用 JavaScript 技术，请确保您的浏览器打开了 JavaScript 支持，谢谢。</noscript>
+    <div id="app"></div>
+    <script>
+      //获取某URL所有参数，集成一个对象
+      window.getAllUrlQuery = function(url) {
+        let _url = url || window.location.href
+        // 获取连接后面的参数，微信分享的链接可能会有编码问题，先decodeURI
+        let params = decodeURI(_url).split('#')[0].split('?')
+        // 如果只有一个数据，说明没有带参数
+        if (params.length > 1) {
+          let result = {}
+          params = params[1].split('&')
+          params.forEach(item=> {
+            // 取出键值对
+            let arr = item.split('=')
+            let key = arr[0]
+            let value = arr[1]
+            // 如果出现大于2的数组，说明value中有 = 这个符号，需要拼接起来
+            if (arr.length > 2) {
+              arr.splice(0, 1)
+              value = arr.join('=')
+            }
+            // 因为直接解析为对象可能会出错，如果value是对象，需要自己用JSON.parse(str)解析
+            result[key] = value
+          })
+          console.log(result)
+          return result
+        }
+        // 返回一个空对象
+        return {}
+      }
+      window.urlParams = window.getAllUrlQuery()
+    </script>
+    <!-- built files will be auto injected -->
+    <% if (htmlWebpackPlugin.options.prod) { %>
+      <!-- 如果是开发环境就不需要引入cdn了，直接用本地的，不然没网都开发不了 -->
+
+      <!-- vue -->
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
+      <!-- vue-router -->
+      <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"></script>
+      <!-- element-ui 引入样式 -->
+      <link rel="stylesheet" href="https://unpkg.com/element-ui@2.3.4/lib/theme-chalk/index.css">
+      <!-- element-ui 组件库 -->
+      <script src="https://unpkg.com/element-ui@2.3.4/lib/index.js"></script>
+      <!-- monent日期库 -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+      <!-- markdown解析 -->
+      <script src="https://cdn.bootcss.com/marked/0.4.0/marked.js"></script>
+      <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    
+      <script>
+        // 百度统计
+        // TODO：上传到github时注释掉，避免别人用这个博客时，也统计到这里来
+        // 自行更改src链接
+
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?99adebece4c0b12580cd6543fbb42a16";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+          // 百度统计
+          window.baidu = ({from = (window.urlParams.ADTAG || '-'), type = 'page', event = '-'}) => {
+            _hmt.push(['_trackEvent', from, type, event])
+          }
+        })();
+    </script>
+    <% } else { %>
+      <script>
+        // 百度统计
+        window.baidu = ({from = (window.urlParams.ADTAG || '-'), type = 'page', event = '-'}) => {
+          console.log('dev模式不上报百度统计：', from, type, event)
+        }
+      </script>
+    <% } %>
+
+    <script type='text/javascript'> 
+
+console.log("%c凉墨唯一QQ:2442703829 %c ", "text-shadow: 3px 1px 1px grey;font-size:30px;background: linear-gradient(to right, red, blue); -webkit-background-clip: text;  color: transparent; content: attr(text);color:pink;-webkit-mask:linear-gradient(to left, red, transparent );","background: url('http://ziymao.cn/111.png') no-repeat center;padding-left:120px;padding-bottom: 200px;")
+ 
+console.log('%c刮刮卡啊 ', 'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );color:transparent;-webkit-background-clip: text;font-size:5em;');
+
+      //禁用右键（防止右键查看源代码） 
+      window.oncontextmenu=function(){return false;} 
+      //禁止任何键盘敲击事件（防止F12和shift+ctrl+i调起开发者工具） 
+      // window.onkeydown = window.onkeyup = window.onkeypress = function () { 
+      // window.event.returnValue = false; 
+      //     return false; 
+      // } 
+ 
+
+
+var threshold=160;
+
+setInterval(function(){
+
+if(window.outerWidth-window.innerWidth>threshold || window.outerHeight-window.innerHeight>threshold){
+
+　　//打开控制台就刷新页面；
+      alert("关闭控制台再点确定")
+  　　window.location.reload()
+
+　　}
+
+})
+
+
+    
+  </script> 
+  </body>
+</html>
