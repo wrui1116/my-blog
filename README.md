@@ -4,7 +4,7 @@
 
 ## 博客地址
 
-[http://codebear.cn](http://codebear.cn/?ADTAG=gh)
+[http://codebear.cn](http://awrui.cn/?ADTAG=gh)
 
 ## 效果图
 
